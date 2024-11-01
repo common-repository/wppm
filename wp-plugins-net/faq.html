@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link href="styles.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+	<div align="center">
+		<h1>Wordpress Plugin Manager FAQ</h1>
+		<h2><a id="users" name="users"></a>WP Users FAQ</h2>
+	</div>
+	
+	<h3>How to use the Wordpress Plugin Database<i>?</i></h3>
+	There are three ways to use the Plugin Database, you can either:
+	<ul>
+		<li>Use the website repository, by browsing to: <a title="WP Plugin Database" href="http://wp-plugins.net/">http://wp-plugins.net/</a></li>
+		<li>Install and use the local Wordpress Plugin DB client cum Plugin Manager, called <i>wp-plugin-mgr</i>, by downloading <a href="http://wp-plugins.net/wp-plugin-mgr.zip">this file</a>, dropping it into your Wordpress root folder and browsing to it (couldn't be easier).</li>
+		<li>Now, there is also an <a href="rss2.php" target="_new">RSS feed</a> listing new releases and updates.</li>
+	</ul>
+			
+	<h3><a name="why-wppm"></a>Why use <i>wp-plugin-mgr</i>?</h3>
+	Because in addition to the same plugin information that are available in the website version, the local client will also help you keep track of  installed plugins and notify you of any new plugins available or whenever an upgrade to a plugin is posted. In a word: you get customized service whereas the website is the same for everybody.
+	<p>One major feature of <i>wp-plugin-mgr</i> is also that it enables one-click installs and removals.</p>
+
+	<h3>What is a &quot;one-click install&quot;?</h3>
+	Amazingly enough, a &quot;one-click install&quot; is an install you can perform by just clicking <i>once</i>. More exactly, once you have installed and configured <i>wp-plugin-mgr</i> (configuration takes roughly 15 seconds and only requires you to know at least your FTP login and password), you will see an additional button in the plugin list, beside the download button, named &quot;one-click install&quot;. Clicking on this button will automatically download, install and activate the designated plugin. It will also add it to a list used to keep track and notify you of any future upgrades.
+	<p>Once installed, a plugin can be removed, in exactly the same way, by clicking on &quot;one-click remove&quot;.</p>
+
+	<h3>Are One-click Installs safe?</h3>
+	When setting up <i>wp-plugin-mgr,</i> you will be asked to choose between two configuration modes: 'permanent' and 'temporary'.
+	<p>While 'permanent' affects your server protection settings in a lasting way to allow for one-click install, 'temporary' only changes them at install time and restore them right after. The trade-off is that choosing 'temporary' will require you to enter your FTP password each time you want to use the One-click feature.</p>
+	<p>Overall, I think both set-ups are fairly safe, and provide an acceptable trade-off with usability of your server in general. I am  using the 'permanent' mode on my own WP install.</p>
+	<p>However, my lawyer, my cat and myself want to make it clear that you are using this feature at your own risk, I cannot take any responsibility for any damage, loss of files etc. that might be caused by the use this script (what did you expect). </p>
+	<p>See also next item.</p>
+	<h3>Do you check the plugins present in the DB?</h3>
+	<p>We do not provide any guarantee that the plugins present in the database are in any way safe and secure to use. It is perfectly possible for some evil user to upload and make available through this tool, a malicious plugin that could do some harm to your server.</p>
+	<p>HOWEVER:</p>
+	<ul>
+		<li>The same danger exists with any random plugin you will download off a stranger's website, possibly even greater.</li>
+		<li>While we cannot guarantee anything, we will attempt to insure any harmful or otherwise undesirable plugins is immediately removed from the DB. A community-based rating system will also be implemented eventually (see To Do List).</li>
+		<li>A whole lot of data, including IP, are stored about every developer who uploads plugins to our database. Were someone to do something truly nasty with it, not only would he get the boot, but a formal complaint would be filled with his ISP immediately.</li>
+	</ul>
+
+	<h3>Is there a Nobel Prize in PHP Programming?</h3>
+	<p>Not at the moment, but feel free to contact the Swedish gov and nominate me, just in case they ever add one.</p>
+
+
+	<div align="center">
+		<h2><a id="wp-plugin-mgr" name="wp-plugin-mgr"></a>WP Plugin Manager (wp-plugin-mgr) Troubleshooting </h2>
+	</div>
+
+	<h3>After installing wp-plugin-mgr, I get the error: <i>fopen(): URL file-access is disabled</i></h3>
+	<p>This script needs fopen() URL file-access to be enabled to work properly. Either ask your server administrator to enable it or edit your php.ini file and insure that you replace the line:<br/>
+<code>allow_url_fopen 0</code> <br/>
+by<br/>
+<code>allow_url_fopen 1</code><br/>
+(<a href="http://php.net/manual/en/ref.filesystem.php#ini.allow-url-fopen">PHP Doc</a>)</p>
+
+
+<div align="center">
+	<h2><a id="dev" name="dev"></a>Wordpress Plugin Developers FAQ</h2>
+</div>
+	<p>This part of the FAQ is specifically intented for Plugin Developers, little point reading it if you are only a regular WP user. </p>
+
+	<h3>How do I add my plugin to the Plugin Database?</h3>
+	<p>Nothing's easier, browse to: <a href="http://wp-plugins.net/dev.php">http://wp-plugins.net/dev.php</a>, create an account, and add your plugins.</p>
+
+	<h3>How should I fill in the fields?</h3>
+	<p>Most fields are pretty self-explanatory. A few notes and comments:</p>
+
+	<ul>
+		<li>Please fill in your <i>email</i>. It won't get displayed anywhere else and we won't use it to spam you. But if there is any issue with your account, we will be able to contact you about it and you won't end up locked out of your own account.</li>
+		<li><i>Plugin Short Name</i> should be the name of your script minus the '.php' part. E.g, if you script is called 'my-script.php', you should enter 'my-script'. This name must be unique (that is, not be in use by any other scripts in the DB). Once you set it, you should <b>not</b> ever edit it again.</li>
+		<li><i>Version major and minor </i>is what goes before and after the dot in the version number (e.g. '1.2').</li>
+		<li>Try to be as specific as possible when picking your plugin <i>category</i> and if you see a category or subcategory that would deserve being added, please contact us.</li>
+		<li>Keep the <i>short </i>description <b>short</b> (doh). Write as much as you want in the <i>long description</i> field.</li>
+		<li><i>Plugin Page URL</i> should preferably point directly to install directions, point out if any editing is necessary beside the file install itself (and take in account the fact that the user might already have installed the plugin through the 'one-click' button).</li>
+		<li> <i>Download URL</i> should preferably be a direct link to download the plugin (zip archive is probably the best format, but that's up to you).</li>
+		<li><i>One-Click Archive URL</i> is the URL to your one-click installable archive (see below). It can be the same as <i>Download URL</i>. Leave it blank if you do not want to provide one-click install for your plugin.</li>
+	</ul>
+			
+	<a id="one-click" name="one-click"></a><h3>How do I make my plugin One-click Installable?</h3>
+	<p>Making your plugin One-Click is painless and makes it much easier for most users to try it out using the <i>wp-plugin-mgr</i> client. Even if your plugins require extra installation steps that cannot be accomplished through One-click install, you should still go ahead and provide a one-click install along with instructions to complete manually.</p>
+
+	<ul><li>Put your plugin file(s) in a ZIP archive (either directly inside the archive, or inside a directory named after <i>Plugin Short Name</i>, i.e. bearing the same name as your plugin script itself).</li> 
+	<li>Fill the <i>One-Click Archive URL</i> field with the URL of the archive.</li>
+	<li>If there's only one file (the plugin file), then you don't have to worry about anything else, the plugin will be installed and activated automatically.</li>
+	<li>If there are any other files, they will be placed in a directory named after the value you entered for <i>Plugin Short Name</i> (i.e. the name of your plugin) inside <i>wp-content</i>. Such location should be easily accessible from your script and you can also write to this directory if necessary.<br/>
+To use these files, simply update your plugin script, using <code>ABSPATH . "wp-content/<i>yourpluginname</i>/<i>your_data_file</i>"</code> wherever you need the path of a file.</li>
+<li><a name="one-click-config"></a>If your script needs user input values (preferences, configuration, filepaths etc), use the <i>Plugin Configuration</i> field to store a PHP array describing each required value as such:
+		<blockquote><pre>array("variable_1" => array("caption" => "Variable description",
+				"default" => "Default Value",
+				"type" => "<i>[text|number|boolean|menu|password|hidden]</i>",
+				"options" => array("value1"=>"Menu Item 1",
+									"value2"=>"Menu Item 2",
+									"value3"=>"Menu Item 3"),
+				"overwrite" => [true|false]),
+	"variable_2" => array( <i>etc.</i></blockquote></pre>
+		In each variable's array, only <i>caption</i> is mandatory, every other key can be omitted. The <i>options</i> key will only be used if <i>type</i> is a <i>menu</i>. <i>overwrite</i>, if set to 'true', indicates that, if this preference already exists (previous installation, upgrade), it should still be asked again from the user and use the 'default' you provide (if set to 'false', the previous setting will be reused)<br/>
+The resulting variables will be assigned and stored in a file called "yourplugin_prefs.php" (where "yourplugin" is the name of your plugin) located inside "wp-content/yourplugin".<br/>
+To use your configuration variable in your plugin you simply have to include this file by adding something like:<br/>
+<blockquote><pre> if (is_file(ABSPATH . "wp-content/yourplugin/yourplugin_prefs.php"))
+	include_once(ABSPATH . "wp-content/yourplugin/yourplugin_prefs.php");</pre></blockquote><br/>
+	You can use this code along with regular config variables assignment (make sure you add it <b>after</b> the assignment code) so that, if the prefs file is present it will be read and overwrite whichever default settings you set, if no prefs file exists (for example if the plugin has been installed manually) it will be editable manually by the user.
+<br/>All the variables you defined (for instance $variable_1, $variable_2...) will be initialized to the value chosen by the user and available inside your script.
+<br/>Make sure your array is a valid PHP array (parenthesis, commas etc.), try using it in a regular PHP file to insure it doesn't have any syntax error in it.
+<p>Here is an example array:
+<blockquote><pre>
+array(
+"foobar" => array("caption"=>"this is a caption:", 
+			"default"=>"this is a default value"),
+"foobar_num" => array("caption"=>"this is a numeric value:",
+			 "type"=>"number", "default"=>42),
+"foobar_menu" => array("type"=>"menu", 
+			"options"=>array("option1"=>"Option 1","option2"=>"Option 2"), "default"=>"option2",
+			 "overwrite" => true),
+"foobar_bool" => array("caption"=>"do you like booleans?",
+			 "default"=>false) 
+);
+</pre></blockquote>
+</li>
+	<li>An option to run some SQL commands will soon be added...</li>
+	<li>Please email us your suggestions and needs in terms of plugin installs.</li></ul>
+
+	<h3>I just released a new version of my plugin</h3>
+	<p>Simply update the version number... It will appear in the <a href="rss2.php" target="_new">RSS feed</a>, users will be notified of the new version and, if your plugin is One-Click installable, they will be given the option to upgrade it this way. Make sure in your upgrade design to reuse any preference or user data file that might have been created by the previous version in your data folder (located inside 'wp-content').<br>
+You can now also add Version-specific information in the DB backend (ignore the "SQL Update" and "Data Files to keep" field for now).</p>
+
+	<h3>I want to help</h3>
+	<p>Please, right this way...</p>
+	<p>Any sort of help (layout, css, php, documentation, packaging...) is always appreciated. Just drop a note.</p>
+	<p>It is also very easy to use the programmatic interface in your own scripts.</p>
+
+	<h3>I want to use the Plugin DB in my own scripts</h3>																																		
+	<p>You can access the DB through the programmatic PHP interface.</p>
+	<p>Simply query the page <a href="http://wp-plugins.net/get_plugin_data.php">http://wp-plugins.net/get_plugin_data.php</a> from your script, it will return a serialized array containing all the plugin data. Run <a href="http://php.net/manual/en/function.unserialize.php">unserialize()</a> on it and a print_r() will show you the gory details in a readable way. </p>
+	<p>You can use a few parameters to refine your search (add them with the usual http get syntax: <code>?paremeter1=value1&parameter2=value2</code>):
+<ul>
+<li><b>id=<i>integer</i></b>: will return plugin data for this ID (you can find out the ID for a plugin in the <a href="dev.php">dev backend tools</a>). If you use this option, the other ones will be ignored.</li>
+<li><b>filter=<i>string</i></b>: will return only plugins matching the string somewhere in their meta-data.</li>
+<li><b>status=<i>[stable|dev]</i></b>: will return only stable or dev (alpha/beta) plugins.</li>
+<li><b>wp_version=<i>[13|any]</i></b>: will return only plugins supporting this version of WP.</li>
+</ul></p>
+
+	<p>More parameters can be used to refine your search, I'll update this area with details later.</p>
+																																		<h3>What's the license?</h3>
+																																		<p>All the downloadable parts are GPL (including <i>wp-plugin-mgr</i>). </p>
+																																		<p>The rest (dev input tools, essentially) is not quite yet decided. I'll make all the source available to anybody who'd like to give it a look, but I might not be able to make it GPL like the rest, for an array of reasons (I had to reuse some of my own semi-professional frameworks to put a quick DB backend). At any rate, it doesn't matter too much, since it is only a standard interface to the mySQL tables. The DB schema is extremely simple and should be adaptable to any other backend, should I one day find a suitable replacement. Feel free to contact me if you feel like tackling this part.</p>
+
+<div align="center">
+	<h2>TO DO</h2>
+</div>
+
+	A tentative list of future features. Please if you see anything missing, let us know:
+	<p><i>wp-plugin-mgr</i> (local client):</p>
+	<ul>
+		<li><s>Support for plugins not installed through one-click feature (automatic detection and upgrade notification,</s> maybe support for one-click removal)</li>
+		<li><b>still</b> more features for one-click installs/upgrades/removal scripts.</li>
+		<li>Version detection and accurate filtering (e.g. only show plugins that supports currently installed WP version)</li>
+		<li><s>Send notification for new version of <i>wp-plugin-mgr.</i></s> </li>
+		<li>Direct bug report to developers (relaying using account emails without displaying it to end-users).</li>
+	</ul>
+	<p>Website frontend:</p>
+	<ul>
+		<li><s>Filtering options.</s></li>
+		<li>Avanced Search options.</s></li>
+		<li>Notify of recently added/updated plugins.</li>
+	</ul>
+	<p>DB Schema:</p>
+	<ul>
+		<li><s>Change logs between each version of a plugin</s> (displayed accordingly in <i>wp-plugin-mgr</i> depending on version already installed).</li>
+		<li>Rating system.</li>
+		<li>User feedback system (auto-quarantine of malicious plugins etc).</li>
+	</ul>
+	<p>Misc:</p>
+	<ul>
+		<li><s>RSS Feed.</s></li>
+	</ul>
+					
+	<div align="right">
+		<h3>More to come soon...</h3>
+		<h3><a href="http://unknowngenius.com/blog">dr Dave</a>: wp-plugins @ <a href="http://unknowngenius.com/blog">unknowngenius.com</a></h3>
+	</div>
+</body>
+
+</html>

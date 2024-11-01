@@ -1,0 +1,215 @@
+body { color: #333333; font-size: 10px; font-family: Verdana, Georgia, "Times New Roman", Times, serif; background-color: #F2F2FF; }
+
+.parent_category_label 
+{
+	font-size:12px;
+	padding-top: 7px;
+	font-weight: bold;
+	letter-spacing: 7px;
+	text-transform: uppercase;
+	color: #47390C;
+}
+
+.parent_category
+{
+	padding-left: 5px;
+	margin-top: 10px;
+}
+
+.category_label 
+{
+	font-size:12px;
+	padding-top: 3px;
+	color: #522D0C;
+	font-style: italic;
+	text-transform: none;
+}
+.category
+{
+	padding-left: 15px;
+}
+
+.plugin 
+{
+	padding: 4px 10px 4px 4px;
+	margin: 2px 2px 2px 2px;
+	border:1px outset #111111;
+	color:black;
+	font-size: 10px;
+	text-transform: none;
+	font-weight: normal;
+	letter-spacing: 0px;
+}
+
+.oneclick { background-color: #CFFECD;}
+.manually { background-color: #FEFBD8;}
+
+.plugin .description {
+	color: #000;
+	font-style: italic;
+	text-align: left;
+	font-size: 10px;
+}
+.plugin .name {
+	color: black;
+	font-weight: bold;
+	font-size: 11px;
+	
+}
+.plugin .details {
+	padding: 4px;
+	margin-top: 3px;
+	font-size: 10px;
+}
+
+.download_section {
+	padding: 4px;
+	text-align:center;
+}
+
+.label { color: #CCCCCC; font-style: italic;}
+.details .label { color: #444; }
+.manually .label { color: #000000; }
+.details .field { color: black; text-align: justify;}
+.section {font-size:14px; font-weight:bold; text-align:left; padding-top: 15px;}
+.notice {color:red; font-weight:bold;}
+
+button {margin:8px 5px 2px 5px;}
+button.remove {color: red;}
+		
+.closed .arrow {background-image:url(plugin_manager/arrow_closed.png);}
+.closed .arrow:hover {background-image:url(plugin_manager/arrow_closed_hover.png);}
+.opened .arrow {background-image:url(plugin_manager/arrow_opened.png);}
+.opened .arrow:hover {background-image:url(plugin_manager/arrow_opened_hover.png);}.inviz {
+	font-size: 1px;
+}
+
+.rubric {
+	font-size: 10px;
+}
+a:link {
+	color: #CE4E22;
+	text-decoration: none;
+}
+a:visited {
+	color: #CE4E22;
+	text-decoration: none;
+
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: underline overline;
+
+}
+
+h1 { text-align:center; font-size:16px;}
+h3 { font-size:13px;}
+
+ul#plugin_list {padding-left:0px;}
+ul#plugin_list li ul{ padding-left:10px;}
+li.opened {list-style:disc url(img/arrow_opened.png) inside;}
+li.opened:hover {list-style:disc url(img/arrow_opened_hover.png) inside;}
+li.closed {list-style:disc url(img/arrow_closed.png) inside;}
+li.closed:hover {list-style:disc url(img/arrow_closed_hover.png) inside;}
+ul.details li {list-style:none inside none; padding-left:10px;}
+ul.details li ul li {list-style:square inside none;}
+
+.closed .category, .closed .plugin {display:none; }
+.notice {color:red; font-weight:bold;}
+.closed .details {display:none;}
+
+.parent_category_label, .category_label, .name, .description {cursor:hand; cursor: pointer}
+
+.fatal_error_msg {color:white; font-weight:bold; background-color:red; border: 1px black solid; padding: 2px; margin: 5px;}
+.error_msg {color:white; font-weight:bold; background-color:orange; border: 1px black solid;  padding: 2px; margin: 5px;}
+.status_msg {color:white; font-weight:bold; background-color:grey; border: 1px black solid;  padding: 2px; margin: 3px;}
+.success_msg {color:white; font-weight:bold; background-color:green; border: 1px black solid; padding: 2px; margin: 5px;}
+
+#left_col
+{
+	float:left;
+	width: 63%;
+	padding-right:15px;
+}
+
+#right_col
+{
+	text-align: left;
+	padding:0px 15px 0px 10px;
+	margin-left:64%;
+}
+
+
+.box_label
+{
+	padding: 3px 8px 3px 8px;
+	border: 1px solid black;
+}
+
+#outset
+{
+	width: 100%;
+	text-align: center;
+	margin:0px;
+}
+
+#outset .box
+{
+	border:1px solid black;
+	padding: 3px 8px 3px 8px;
+}
+
+
+#main_content
+{
+	margin-top: 20px;
+	width: 100%;
+	min-width:680px;
+	margin-left: auto;
+	margin-right: auto;
+	clear:both;
+}
+
+#footer
+{
+	padding-top: 20px;
+	width: 100%;
+	clear: both;
+	margin: auto;
+	text-align:left;
+	font-size:10px;
+}
+
+#get_firefox
+{
+	float: left; 
+	margin:0px 3px 3px 0px;
+}
+
+legend
+{
+	color:grey;
+	font-style: bold;
+	font-size: 14px;
+}
+
+fieldset
+{
+	margin-bottom:10px;
+	padding: 5px;
+	text-align:center;
+}
+
+.options
+{
+	float: left;
+	clear:right;
+	width: 240px;
+}
+
+#news
+{
+	text-align:left;
+}
+
+img {border:0px;}
